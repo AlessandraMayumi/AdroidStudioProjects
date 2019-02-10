@@ -7,24 +7,35 @@ import android.widget.CheckBox;
 
 import com.devmasterteam.festafimano.R;
 import com.devmasterteam.festafimano.constants.FimDeAnoConstants;
-import com.devmasterteam.festafimano.util.SecutityPreferences;
+import com.devmasterteam.festafimano.util.SecurityPreferences;
 
 public class DetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ViewHolder mViewHolder = new ViewHolder();
-    private SecutityPreferences mSecurityPreferences;
+    private SecurityPreferences mSecurityPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detais);
 
-        this.mSecurityPreferences = new SecutityPreferences(this);
+        this.mSecurityPreferences = new SecurityPreferences(this);
 
         this.mViewHolder.checkboxParticipate = (CheckBox) findViewById(R.id.checkbox_participate);
         this.mViewHolder.checkboxParticipate.setOnClickListener(this);
 
         this.loadDataFromActivity();
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == R.id.checkbox_participate) {
+            if (this.mViewHolder.checkboxParticipate.isChecked())
+                this.mSecurityPreferences.storeString(FimDeAnoConstants.PRESENCE, FimDeAnoConstants.CONFIRMED_WILL_GO);
+            else
+                this.mSecurityPreferences.storeString(FimDeAnoConstants.PRESENCE, FimDeAnoConstants.CONFIRMED_WONT_GO);
+        }
     }
 
     private void loadDataFromActivity() {
@@ -36,17 +47,6 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
             } else {
                 this.mViewHolder.checkboxParticipate.setChecked(false);
             }
-        }
-    }
-
-    @Override
-    public void onClick(View view) {
-        int id = view.getId();
-        if (id == R.id.checkbox_participate) {
-            if (this.mViewHolder.checkboxParticipate.isChecked())
-                this.mSecurityPreferences.storeString(FimDeAnoConstants.PRESENCE, FimDeAnoConstants.CONFIRMED_WILL_GO);
-            else
-                this.mSecurityPreferences.storeString(FimDeAnoConstants.PRESENCE, FimDeAnoConstants.CONFIRMED_WONT_GO);
         }
     }
 

@@ -3,10 +3,10 @@ package com.devmasterteam.festafimano.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class SecutityPreferences {
+public class SecurityPreferences {
     private final SharedPreferences mSharedPreferences;
 
-    public SecutityPreferences(Context context){
+    public SecurityPreferences(Context context){
         this.mSharedPreferences = context.getSharedPreferences("Fim de Ano", Context.MODE_PRIVATE);
     }
 
