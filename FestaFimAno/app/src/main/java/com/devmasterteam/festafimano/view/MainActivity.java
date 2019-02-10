@@ -5,14 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.TextView;
 
 import com.devmasterteam.festafimano.R;
 import com.devmasterteam.festafimano.constants.FimDeAnoConstants;
 import com.devmasterteam.festafimano.util.SecurityPreferences;
 
-import java.text.BreakIterator;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -20,20 +18,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ViewHolder mViewHolder = new ViewHolder();
     private SecurityPreferences mSecurityPreferences;
-    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/mm/yyyy");
+    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher_foreground);
+
+        this.mViewHolder.textDaysLeft = (TextView) findViewById(R.id.text_days_left);
         this.mViewHolder.textToday = (TextView) findViewById(R.id.text_today);
 
         this.mViewHolder.buttonConfirm = (Button) findViewById(R.id.button_confirm);
         this.mViewHolder.buttonConfirm.setOnClickListener(this);
 
         this.mSecurityPreferences = new SecurityPreferences(this);
+
         this.mViewHolder.textToday.setText(SIMPLE_DATE_FORMAT.format(Calendar.getInstance().getTime()));
+        String daysLeft = String.format("%s %s", String.valueOf(this.getDaysLeftToEndOfYear()), getString(R.string.dias));
+        this.mViewHolder.textDaysLeft.setText(daysLeft);
     }
 
     @Override
@@ -41,7 +47,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
         this.verifyPresence();
     }
-
 
     @Override
     public void onClick(View view) {
@@ -54,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private int getDaysLeftToEndOfYear(){
+    private int getDaysLeftToEndOfYear() {
         Calendar calendarToday = Calendar.getInstance();
         int today = calendarToday.get(Calendar.DAY_OF_YEAR);
 
@@ -77,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static class ViewHolder {
         TextView textToday;
+        TextView textDaysLeft;
         Button buttonConfirm;
     }
 }
