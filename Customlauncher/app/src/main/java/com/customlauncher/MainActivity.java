@@ -1,5 +1,6 @@
-package com.devmasterteam.customlauncher;
+package com.customlauncher;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
@@ -7,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.customlauncher.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -18,10 +21,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         chrome_view = (ImageView) findViewById(R.id.chrome_view);
-        this.getActivityIcon(chrome_view);
 
         chrome_view.setOnClickListener(this);
+
+        this.getActivityIcon(chrome_view);
     }
+
     @Override
     public void onClick(View view) {
         int id = view.getId();
@@ -30,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(launchIntent);
         }
     }
+
     private void getActivityIcon(ImageView chrome_view){
         try{
             Drawable chromeIcon = getPackageManager().getApplicationIcon("com.android.chrome");

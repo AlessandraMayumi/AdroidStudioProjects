@@ -1,4 +1,4 @@
-package com.devmasterteam.customlauncher;
+package com.customlauncher;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.devmasterteam.customlauncher", appContext.getPackageName());
+        assertEquals("com.customlauncher", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.devmasterteam.customlauncher;
+package com.customlauncher;
 
 import org.junit.Test;
 
