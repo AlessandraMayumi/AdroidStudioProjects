@@ -59,22 +59,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         //This is where we build our list of app details, using the app
         //object we created to store the label, package name and icon
-
-        PackageManager pm = c.getPackageManager();
-        appsList = new ArrayList<ApkInfo>();
-
-        Intent i = new Intent(Intent.ACTION_MAIN, null);
-        i.addCategory(Intent.CATEGORY_LAUNCHER);
-
-        List<ResolveInfo> allApps = pm.queryIntentActivities(i, 0);
-        for(ResolveInfo ri:allApps) {
-            ApkInfo app = new ApkInfo();
-            app.setApkLabel(ri.loadLabel(pm));
-            app.setApkPackage(ri.activityInfo.packageName);
-            app.setApkIcon(ri.activityInfo.loadIcon(pm));
-            appsList.add(app);
-        }
-
+        appsList = MainActivity.getAppsList();
     }
 
     @Override

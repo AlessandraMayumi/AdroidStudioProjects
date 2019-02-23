@@ -14,9 +14,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
+<<<<<<< HEAD
     <Button
         android:id="@+id/button_apps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"/>
+=======
+>>>>>>> 10a76a26c17ea2b9d2244d972ba250fbbe3033ce
 </LinearLayout>

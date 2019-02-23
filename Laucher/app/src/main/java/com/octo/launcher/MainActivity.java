@@ -1,6 +1,10 @@
 package com.octo.launcher;
 
 import android.content.ComponentName;
+<<<<<<< HEAD
+=======
+import android.content.Context;
+>>>>>>> 10a76a26c17ea2b9d2244d972ba250fbbe3033ce
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -10,7 +14,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+<<<<<<< HEAD
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+=======
+public class MainActivity extends AppCompatActivity {
+
+>>>>>>> 10a76a26c17ea2b9d2244d972ba250fbbe3033ce
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(launchIntent);
     }
 
+<<<<<<< HEAD
     @Override
     public void onClick(View view) {
         int id = view.getId();
@@ -34,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
     }
+=======
+>>>>>>> 10a76a26c17ea2b9d2244d972ba250fbbe3033ce
     public Drawable getActivityIcon(String packageName, String activityName) {
         PackageManager pm = getPackageManager();
         Intent intent = new Intent();

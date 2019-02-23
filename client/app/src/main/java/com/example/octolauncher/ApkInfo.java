@@ -3,14 +3,8 @@ package com.example.octolauncher;
 import android.graphics.drawable.Drawable;
 
 public class ApkInfo {
-    private CharSequence apkLabel, apkInfo, apkPackage;
+    private CharSequence apkLabel, apkPackage;
     private Drawable apkIcon;
-//    public ApkInfo(String apkLabel, String apkInfo, String apkPackage, Drawable apkIcon) {
-//        this.apkInfo = apkInfo;
-//        this.apkLabel = apkLabel;
-//        this.apkIcon = apkIcon;
-//        this.apkPackage = apkPackage;
-//    }
 
     public CharSequence getApkLabel() {
         return apkLabel;
@@ -18,14 +12,6 @@ public class ApkInfo {
 
     public void setApkLabel(CharSequence apkLabel) {
         this.apkLabel = apkLabel;
-    }
-
-    public CharSequence getApkInfo() {
-        return apkInfo;
-    }
-
-    public void setApkInfo(CharSequence apkInfo) {
-        this.apkInfo = apkInfo;
     }
 
     public CharSequence getApkPackage() {
