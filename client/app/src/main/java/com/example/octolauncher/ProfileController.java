@@ -274,7 +274,8 @@ public class ProfileController {
                 return p;
             }
         }
-        return null;
+
+        return this.LoadedProfiles.get(0);
     }
 
     Profile getProfileByPosition(int _position){
