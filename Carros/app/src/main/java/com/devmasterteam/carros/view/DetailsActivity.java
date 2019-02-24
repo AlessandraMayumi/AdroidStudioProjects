@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.devmasterteam.carros.R;
 
-public class Details extends AppCompatActivity {
+public class DetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
