@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">LearningRecycleView</string>
-    <string name="desc_img">Row Image View</string>
-    <string name="desc_text">Row Text View</string>
-    <string name="test">Teste</string>
-</resources>
