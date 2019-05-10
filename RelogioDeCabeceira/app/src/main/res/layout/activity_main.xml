@@ -25,7 +25,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
         <CheckBox android:id='@+id/check_battery'
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nivel_da_bateria"/>
+        <TextView
+            android:id="@+id/text_battery_level"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nivel_da_bateria"/>
     </LinearLayout>
