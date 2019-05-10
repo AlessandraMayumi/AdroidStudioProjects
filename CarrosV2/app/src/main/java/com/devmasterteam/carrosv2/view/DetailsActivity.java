@@ -28,6 +28,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         this.mViewHolder.imgCarPitcture = (ImageView) this.findViewById(R.id.img_car_pic);
         this.mViewHolder.textModel = (TextView) this.findViewById(R.id.text_model);
+        this.mViewHolder.textManufacturer = (TextView) this.findViewById(R.id.text_manufacturer);
         this.mViewHolder.textHorsePower = (TextView) this.findViewById(R.id.text_horse_power);
         this.mViewHolder.textPrice = (TextView) this.findViewById(R.id.text_price);
 
@@ -38,6 +39,7 @@ public class DetailsActivity extends AppCompatActivity {
     private void setData() {
         this.mViewHolder.imgCarPitcture.setImageDrawable(this.mCar.picture);
         this.mViewHolder.textModel.setText(this.mCar.model);
+        this.mViewHolder.textManufacturer.setText((this.mCar.manufacturer));
         this.mViewHolder.textHorsePower.setText(String.valueOf(this.mCar.horsePower));
         this.mViewHolder.textPrice.setText(String.valueOf(this.mCar.price));
     }
@@ -52,6 +54,7 @@ public class DetailsActivity extends AppCompatActivity {
     private static class ViewHolder {
         ImageView imgCarPitcture;
         TextView textModel;
+        TextView textManufacturer;
         TextView textHorsePower;
         TextView textPrice;
     }
