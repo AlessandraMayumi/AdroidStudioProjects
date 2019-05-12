@@ -7,8 +7,10 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
         <TextView android:id="@+id/text_hour_minute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,16 +23,21 @@
             android:textSize="40sp"/>
     </LinearLayout>
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true">
+        <TextView
+            android:id="@+id/text_battery_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nivel_da_bateria"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
         <CheckBox android:id='@+id/check_battery'
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nivel_da_bateria"/>
-        <TextView
-            android:id="@+id/text_battery_level"
-            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nivel_da_bateria"/>
