@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Calendar;
@@ -43,7 +45,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.mTextHourMinute = (TextView) this.findViewById(R.id.text_hour_minute);
         this.mViewHolder.mTextSecond = (TextView) this.findViewById(R.id.text_second);
         this.mViewHolder.mTextBatteryLevel = (TextView) this.findViewById(R.id.text_battery_level);
+        this.mViewHolder.mImageOption = (ImageView) this.findViewById(R.id.image_option);
+        this.mViewHolder.mLinearOption = (LinearLayout) this.findViewById(R.id.linear_option);
         this.mViewHolder.mCheckBattery = (CheckBox) this.findViewById(R.id.check_battery);
+        this.mViewHolder.mImageClose = (ImageView) this.findViewById(R.id.image_close);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -54,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         this.setListener();
 
+        this.mViewHolder.mLinearOption.setTranslationY(300);
     }
 
     @Override
@@ -74,11 +80,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d("stop=", "stop");
     }
 
-
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.check_battery) {
+        int id = v.getId();
+        if (id == R.id.check_battery) {
             this.toggleCheckBattery();
+        }else if (id == R.id.image_option){
+            this.mViewHolder.mLinearOption.setVisibility(View.VISIBLE);
+            this.mViewHolder.mLinearOption.animate()
+                    .translationY(0)
+                    .setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
+        }else if (id == R.id.image_close){
+            this.mViewHolder.mLinearOption.animate()
+                    .translationY(this.mViewHolder.mLinearOption.getMeasuredHeight())
+                    .setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
         }
     }
 
@@ -94,6 +109,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void setListener() {
         this.mViewHolder.mCheckBattery.setOnClickListener(this);
+        this.mViewHolder.mImageOption.setOnClickListener(this);
+        this.mViewHolder.mImageClose.setOnClickListener(this);
     }
 
     private void startBedside() {
@@ -129,6 +146,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView mTextHourMinute;
         TextView mTextSecond;
         TextView mTextBatteryLevel;
+        ImageView mImageOption;
+        LinearLayout mLinearOption;
         CheckBox mCheckBattery;
+        ImageView mImageClose;
     }
 }

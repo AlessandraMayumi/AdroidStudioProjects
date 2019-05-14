@@ -3,4 +3,6 @@
 
     <string name="portugues">Português</string>
     <string name="nivel_da_bateria">Nível da bateria</string>
+    <string name="close">close</string>
+    <string name="preferences">preferences</string>
 </resources>
