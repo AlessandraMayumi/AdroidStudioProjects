@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         this.setListener();
 
-        this.mViewHolder.mLinearOption.setTranslationY(300);
     }
 
     @Override
@@ -80,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d("stop=", "stop");
     }
 
+
     @Override
     public void onClick(View v) {
         int id = v.getId();
@@ -92,9 +92,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .translationY(0)
                     .setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
         }else if (id == R.id.image_close){
-            this.mViewHolder.mLinearOption.animate()
-                    .translationY(this.mViewHolder.mLinearOption.getMeasuredHeight())
-                    .setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
 //            Fechar
         }
     }

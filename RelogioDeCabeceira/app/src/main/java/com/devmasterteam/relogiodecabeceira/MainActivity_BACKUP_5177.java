@@ -86,16 +86,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (id == R.id.check_battery) {
             this.toggleCheckBattery();
         }else if (id == R.id.image_option){
+<<<<<<< HEAD
+=======
 //            Abrir
+>>>>>>> 487770c07db26b4ac9575a726112afa28de101a1
             this.mViewHolder.mLinearOption.setVisibility(View.VISIBLE);
             this.mViewHolder.mLinearOption.animate()
                     .translationY(0)
                     .setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
         }else if (id == R.id.image_close){
+<<<<<<< HEAD
             this.mViewHolder.mLinearOption.animate()
                     .translationY(this.mViewHolder.mLinearOption.getMeasuredHeight())
                     .setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
+=======
 //            Fechar
+>>>>>>> 487770c07db26b4ac9575a726112afa28de101a1
         }
     }
 
