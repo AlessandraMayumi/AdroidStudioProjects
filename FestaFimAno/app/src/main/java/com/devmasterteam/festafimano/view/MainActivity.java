@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return dayDecember31 - today;
     }
 
+<<<<<<< Updated upstream
     private void verifyPresence() {
         String presence = this.mSecurityPreferences.getStoredString(FimDeAnoConstants.PRESENCE);
         if (presence.equals("")) {
@@ -80,6 +81,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+||||||| merged common ancestors
+    private void verifyPresence() {
+        String presence = this.mSecutiryPreferences.getStoredString(FimDeAnoConstants.PRESENCE);
+        if (presence.equals("")) {
+            this.mViewHolder.buttonConfirm.setText(R.string.nao_confirmado);
+        } else if (presence.equals(FimDeAnoConstants.CONFIRMED_WILL_GO)) {
+            this.mViewHolder.buttonConfirm.setText(R.string.sim);
+        } else if (presence.equals(FimDeAnoConstants.CONFIRMED_WONT_GO)) {
+            this.mViewHolder.buttonConfirm.setText(R.string.nao);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == R.id.button_confirm) {
+            String presence = this.mSecutiryPreferences.getStoredString(FimDeAnoConstants.PRESENCE);
+            Intent intent = new Intent(this, DetailsActivity.class);
+            intent.putExtra(FimDeAnoConstants.PRESENCE, presence);
+            startActivity(intent);
+        }
+    }
+
+=======
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == R.id.button_confirm) {
+            String presence = this.mSecutiryPreferences.getStoredString(FimDeAnoConstants.PRESENCE);
+            Intent intent = new Intent(this, DetailsActivity.class);
+            intent.putExtra(FimDeAnoConstants.PRESENCE, presence);
+            startActivity(intent);
+        }
+    }
+
+    private void verifyPresence() {
+        String presence = this.mSecutiryPreferences.getStoredString(FimDeAnoConstants.PRESENCE);
+        if (presence.equals("")) {
+            this.mViewHolder.buttonConfirm.setText(R.string.nao_confirmado);
+        } else if (presence.equals(FimDeAnoConstants.CONFIRMED_WILL_GO)) {
+            this.mViewHolder.buttonConfirm.setText(R.string.sim);
+        } else if (presence.equals(FimDeAnoConstants.CONFIRMED_WONT_GO)) {
+            this.mViewHolder.buttonConfirm.setText(R.string.nao);
+        }
+    }
+
+>>>>>>> Stashed changes
     private static class ViewHolder {
         TextView textToday;
         TextView textDaysLeft;
