@@ -1,8 +1,8 @@
 package com.devmasterteam.photicker.views;
 
 import android.graphics.BitmapFactory;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,6 +14,8 @@ import com.devmasterteam.photicker.utils.ImageUtil;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private final ViewHolder mViewHolder = new ViewHolder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
             image.setOnClickListener(onClickImageOption(relativeLayout, imageId, width, height));
 
             content.addView(image);
+
+            this.mViewHolder.mLinearSharePanel = (LinearLayout) this.findViewById(R.id.linear_share_panel);
+            this.mViewHolder.mLinearControlPanel = (LinearLayout) this.findViewById(R.id.linear_control_panel);
         }
     }
 
@@ -55,7 +60,35 @@ public class MainActivity extends AppCompatActivity {
                 final ImageView image = new ImageView(MainActivity.this);
                 image.setBackgroundResource(imageId);
                 relativeLayout.addView(image);
+
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) image.getLayoutParams();
+                layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                layoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
+
+                toogleControlPanel(true);
             }
         };
+    }
+
+    private void toogleControlPanel(boolean showControl) {
+        if (showControl) {
+            this.mViewHolder.mLinearSharePanel.setVisibility(View.GONE);
+            this.mViewHolder.mLinearControlPanel.setVisibility(View.VISIBLE);
+        } else {
+            this.mViewHolder.mLinearSharePanel.setVisibility(View.VISIBLE);
+            this.mViewHolder.mLinearControlPanel.setVisibility(View.GONE);
+        }
+    }
+
+    private static class ViewHolder {
+        LinearLayout mLinearSharePanel;
+        LinearLayout mLinearControlPanel;
+
+        ImageView mButtonZoonIn;
+        ImageView mButtonZoonOut;
+        ImageView mButtonRotateLeft;
+        ImageView mButtonRotateRight;
+        ImageView mButtonFinish;
+        ImageView mButtonRemove;
     }
 }
