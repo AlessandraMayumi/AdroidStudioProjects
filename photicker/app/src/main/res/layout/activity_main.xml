@@ -169,7 +169,7 @@
             android:focusable="true"
             android:src="@drawable/rotate_right"/>
         <ImageView
-            android:id="@+id/image_rotate_finish"
+            android:id="@+id/image_finish"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
