@@ -1,13 +1,21 @@
 package com.devmasterteam.photicker.utils;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.devmasterteam.photicker.R;
+import com.devmasterteam.photicker.views.MainActivity;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -98,7 +106,7 @@ public class ImageUtil {
         return images;
     }
 
-    public static int calculateInSampleSize(
+    private static int calculateInSampleSize(
             BitmapFactory.Options options, int reqWidth, int reqHeight) {
         // Raw height and width of image
         final int height = options.outHeight;
@@ -160,5 +168,30 @@ public class ImageUtil {
     public static void handleRotateRight(ImageView mImageSelected) {
         mImageSelected.setRotation(mImageSelected.getRotation() + 5);
     }
+
+//    public static File createImageFile (Context context) throws IOException {
+//        String imageFileName = "photicker";
+//        File storeDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+//        File image = image = File.createTempFile(imageFileName, ".jpg", storeDir);
+//        return image;
+//    }
+
+//    String currentPhotoPath;
+//
+//    private File createImageFile() throws IOException {
+//        // Create an image file name
+//        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+//        String imageFileName = "JPEG_" + timeStamp + "_";
+//        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+//        File image = File.createTempFile(
+//                imageFileName,  /* prefix */
+//                ".jpg",         /* suffix */
+//                storageDir      /* directory */
+//        );
+//
+//        // Save a file: path for use with ACTION_VIEW intents
+//        currentPhotoPath = image.getAbsolutePath();
+//        return image;
+//    }
 }
 
